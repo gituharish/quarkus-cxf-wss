@@ -1,0 +1,16 @@
+<soap:Envelope xmlns:cxf="http://cxf.it.quarkiverse.io/" xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+    <soap:Header>
+        <wsse:Security soap:mustUnderstand="true" xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:UsernameToken wsu:Id="UsernameToken-39D8BCAE2E6AFE7EEB16595331191691">
+                <wsse:Username>testuser</wsse:Username>
+                <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">testpwd</wsse:Password>
+            </wsse:UsernameToken>
+        </wsse:Security>
+    </soap:Header>
+    <soap:Body>
+        <cxf:Ping>
+            <!--Optional:-->
+            <text>gitu</text>
+        </cxf:Ping>
+    </soap:Body>
+</soap:Envelope>

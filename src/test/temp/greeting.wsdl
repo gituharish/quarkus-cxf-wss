@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://cxf.it.quarkiverse.io/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="GreetingWebService" targetNamespace="http://cxf.it.quarkiverse.io/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://cxf.it.quarkiverse.io/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://cxf.it.quarkiverse.io/" version="1.0">
+  <xs:element name="ping" type="tns:ping"/>
+  <xs:complexType name="ping">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="text" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Ping" nillable="true" type="tns:ping"/>
+  <xs:element name="GreetingFault" nillable="true" type="xs:string"/>
+  <xs:element name="pingResponse" type="tns:pingResponse"/>
+  <xs:complexType name="pingResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="reply" type="tns:reply"/>
+  <xs:complexType name="reply">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="text" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="replyResponse" type="tns:replyResponse"/>
+  <xs:complexType name="replyResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="replyResponse">
+    <wsdl:part element="tns:replyResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="pingResponse">
+    <wsdl:part element="tns:pingResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="reply">
+    <wsdl:part element="tns:reply" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GreetingException">
+    <wsdl:part element="tns:GreetingFault" name="GreetingException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ping">
+    <wsdl:part element="tns:Ping" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="GreetingWebService">
+    <wsdl:operation name="ping">
+      <wsdl:input message="tns:ping" name="ping">
+    </wsdl:input>
+      <wsdl:output message="tns:pingResponse" name="pingResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:GreetingException" name="GreetingException">
+    </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="reply">
+      <wsdl:input message="tns:reply" name="reply">
+    </wsdl:input>
+      <wsdl:output message="tns:replyResponse" name="replyResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GreetingWebServiceSoapBinding" type="tns:GreetingWebService">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ping">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="ping">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="pingResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="GreetingException">
+        <soap12:fault name="GreetingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="reply">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="reply">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="replyResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GreetingWebService">
+    <wsdl:port binding="tns:GreetingWebServiceSoapBinding" name="GreetingWebServicePort">
+      <soap12:address location="http://localhost:8080/soap/greeting"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

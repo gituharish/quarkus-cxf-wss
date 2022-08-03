@@ -1,0 +1,7 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+    <soap:Body>
+        <ns1:pingResponse xmlns:ns1="http://cxf.it.quarkiverse.io/">
+            <return xmlns:ns2="http://cxf.it.quarkiverse.io/">Hello gitu</return>
+        </ns1:pingResponse>
+    </soap:Body>
+</soap:Envelope>
