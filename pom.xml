@@ -32,7 +32,7 @@
     <dependency>
       <groupId>io.quarkiverse.cxf</groupId>
       <artifactId>quarkus-cxf</artifactId>
-      <version>1.2.0</version>
+      <version>1.4.0</version>
     </dependency>
     <dependency>
       <groupId>io.rest-assured</groupId>
@@ -52,7 +52,7 @@
     <dependency>
       <groupId>io.quarkiverse.cxf</groupId>
       <artifactId>quarkus-cxf-rt-ws-security</artifactId>
-      <version>1.2.0</version>
+      <version>1.4.0</version>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -61,7 +61,7 @@
     <dependency>
       <groupId>io.quarkiverse.cxf</groupId>
       <artifactId>quarkus-cxf-rt-features-logging</artifactId>
-      <version>1.2.0</version>
+      <version>1.4.0</version>
     </dependency>
     <dependency>
       <groupId>io.quarkus</groupId>
@@ -81,19 +81,20 @@
       </exclusions>
     </dependency>
 
-<!--    &lt;!&ndash; provides CXF logging feature &ndash;&gt;-->
-<!--    <dependency>-->
-<!--      <groupId>org.apache.cxf</groupId>-->
-<!--      <artifactId>cxf-rt-features-logging</artifactId>-->
-<!--      <version>${cxf.version}</version>-->
-<!--      <scope>test</scope>-->
-<!--      <exclusions>-->
-<!--        <exclusion>-->
-<!--          <groupId>org.apache.geronimo.specs</groupId>-->
-<!--          <artifactId>geronimo-jta_1.1_spec</artifactId>-->
-<!--        </exclusion>-->
-<!--      </exclusions>-->
-<!--    </dependency>-->
+    <!-- provides CXF logging feature -->
+    <dependency>
+      <groupId>org.apache.cxf</groupId>
+      <artifactId>cxf-rt-features-logging</artifactId>
+      <version>${cxf.version}</version>
+      <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>org.apache.geronimo.specs</groupId>
+          <artifactId>geronimo-jta_1.1_spec</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
   </dependencies>
   <build>
     <plugins>

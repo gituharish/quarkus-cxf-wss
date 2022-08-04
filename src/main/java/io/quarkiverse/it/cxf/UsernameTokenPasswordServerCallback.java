@@ -20,11 +20,11 @@ import org.apache.wss4j.common.ext.WSPasswordCallback;
 //@RegisterForReflection
 public class UsernameTokenPasswordServerCallback implements CallbackHandler {
 
-    @Inject
-    AppProperties appProperties;
+//    @Inject
+//    AppProperties appProperties;
     public Map<String, String> passwords = new HashMap();
 
-    public UsernameTokenPasswordServerCallback() {
+    public UsernameTokenPasswordServerCallback(AppProperties appProperties) {
         this.passwords.put(appProperties.username(), appProperties.password());
 //        this.passwords.put("testuser", "testpwd");
     }

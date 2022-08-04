@@ -1,8 +1,6 @@
 package io.quarkiverse.it.cxf;
 import io.quarkus.arc.Unremovable;
 
-import org.apache.cxf.ext.logging.LoggingFeature;
-//import org.apache.cxf.feature.LoggingFeature;
 import org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor;
 import org.apache.wss4j.common.ConfigurationConstants;
 import org.apache.wss4j.dom.WSConstants;
@@ -33,22 +31,5 @@ public class GreetingProducer {
 //        inProps.put(ConfigurationConstants.PW_CALLBACK_CLASS, UsernameTokenPasswordServerCallback.class.getName());
         inProps.put(ConfigurationConstants.PW_CALLBACK_REF, usernameTokenPasswordServerCallback);
         return new WSS4JInInterceptor(inProps);
-    }
-    @Produces
-    @Unremovable
-    @ApplicationScoped
-    LoggingFeature loggingFeature() {
-        LoggingFeature loggingFeature = new LoggingFeature();
-        loggingFeature.addSensitiveElementNames(new HashSet<>(sensitiveElementNames));
-        loggingFeature.addSensitiveProtocolHeaderNames(new HashSet<>(Arrays.asList(
-                "Authorization",
-                "User-Agent",
-                "Host",
-                "Content-Length",
-                "Accept",
-                "accept-encoding",
-                "connection")));
-        loggingFeature.setPrettyLogging(true);
-        return loggingFeature;
     }
 }
